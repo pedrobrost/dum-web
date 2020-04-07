@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { openModal } from "../../../store/ducks/editModal";
+import { openModal } from "../../../store/ducks/editProductModal";
 import { getProducts } from "../../../store/ducks/productFilters";
 import ProductTable from "./productTableContainer/ProductTable";
 

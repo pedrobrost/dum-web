@@ -6,8 +6,12 @@ import error from "./ducks/error";
 import notifications from "./ducks/notifications";
 import products from "./ducks/products";
 import productFilters from "./ducks/productFilters";
-import addModal from "./ducks/addModal";
-import editModal from "./ducks/editModal";
+import addProductModal from "./ducks/addProductModal";
+import editProductModal from "./ducks/editProductModal";
+import customers from "./ducks/customers";
+import customerFilters from "./ducks/customerFilters";
+import addCustomerModal from "./ducks/addCustomerModal";
+import editCustomerModal from "./ducks/editCustomerModal";
 
 const createRootReducer = (history) =>
   combineReducers({
@@ -17,7 +21,11 @@ const createRootReducer = (history) =>
     notifications,
     products,
     productFilters,
-    addModal,
-    editModal,
+    addProductModal,
+    editProductModal,
+    customers,
+    customerFilters,
+    addCustomerModal,
+    editCustomerModal,
   });
 export default createRootReducer;

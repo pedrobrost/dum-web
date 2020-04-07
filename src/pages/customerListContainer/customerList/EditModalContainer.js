@@ -3,22 +3,25 @@ import { connect } from "react-redux";
 import {
   closeModal,
   changeName,
-  changePrice,
+  changeAddress,
+  changePhone,
   confirm,
-} from "../../../store/ducks/editProductModal";
+} from "../../../store/ducks/editCustomerModal";
 import EditModal from "./editModalContainer/EditModal";
 
 const mapStateToProps = (state) => ({
-  open: state.editProductModal.modalOpen,
-  name: state.editProductModal.name,
-  price: state.editProductModal.price,
-  sending: state.editProductModal.sending,
+  open: state.editCustomerModal.modalOpen,
+  name: state.editCustomerModal.name,
+  address: state.editCustomerModal.address,
+  phone: state.editCustomerModal.phone,
+  sending: state.editCustomerModal.sending,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onClose: () => dispatch(closeModal()),
   changeName: (name) => dispatch(changeName(name)),
-  changePrice: (price) => dispatch(changePrice(price)),
+  changeAddress: (address) => dispatch(changeAddress(address)),
+  changePhone: (phone) => dispatch(changePhone(phone)),
   confirm: () => dispatch(confirm()),
 });
 

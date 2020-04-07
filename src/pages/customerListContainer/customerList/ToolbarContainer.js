@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 
-import { openModal } from "../../../store/ducks/addProductModal";
-import { changeSearch } from "../../../store/ducks/productFilters";
+import { openModal } from "../../../store/ducks/addCustomerModal";
+import { changeSearch } from "../../../store/ducks/customerFilters";
 
 import Toolbar from "./toolbarContainer/Toolbar";
 
 const mapStateToProps = (state) => ({
-  search: state.productFilters.search,
+  search: state.customerFilters.search,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -7,7 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import DialogContentText from "@material-ui/core/DialogContentText";
 
-const editModal = (props) => {
+const addModal = (props) => {
   return (
     <Dialog
       open={props.open}
@@ -16,10 +16,10 @@ const editModal = (props) => {
       disableBackdropClick={props.sending}
       aria-labelledby="form-dialog-title"
     >
-      <DialogTitle id="form-dialog-title">Editar Producto</DialogTitle>
+      <DialogTitle id="form-dialog-title">Agregar Producto</DialogTitle>
       <DialogContent>
         <>
-          <DialogContentText>Edite los datos del producto</DialogContentText>
+          <DialogContentText>Ingrese los datos del producto</DialogContentText>
           <TextField
             value={props.name}
             onChange={(e) => props.changeName(e.target.value)}
@@ -28,11 +28,17 @@ const editModal = (props) => {
             fullWidth
           />
           <TextField
-            value={props.price}
-            onChange={(e) => props.changePrice(e.target.value)}
+            value={props.address}
+            onChange={(e) => props.changeAddress(e.target.value)}
             margin="dense"
-            label="Precio"
-            type="number"
+            label="Dirección"
+            fullWidth
+          />
+          <TextField
+            value={props.phone}
+            onChange={(e) => props.changePhone(e.target.value)}
+            margin="dense"
+            label="Teléfono"
             fullWidth
           />
         </>
@@ -50,11 +56,11 @@ const editModal = (props) => {
           onClick={props.confirm}
           color="primary"
         >
-          Editar
+          Agregar
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default editModal;
+export default addModal;

@@ -28,11 +28,17 @@ const editModal = (props) => {
             fullWidth
           />
           <TextField
-            value={props.price}
-            onChange={(e) => props.changePrice(e.target.value)}
+            value={props.address}
+            onChange={(e) => props.changeAddress(e.target.value)}
             margin="dense"
-            label="Precio"
-            type="number"
+            label="Dirección"
+            fullWidth
+          />
+          <TextField
+            value={props.phone}
+            onChange={(e) => props.changePhone(e.target.value)}
+            margin="dense"
+            label="Teléfono"
             fullWidth
           />
         </>

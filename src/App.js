@@ -9,6 +9,7 @@ import Layout from "./components/UI/Layout/Layout";
 import Notifier from "./components/UI/Notifier";
 
 import Products from "./pages/ProductListContainer";
+import Customers from "./pages/CustomerListContainer";
 
 const theme = createMuiTheme({
   palette: {
@@ -29,7 +30,7 @@ const app = (props) => {
             <Notifier />
             <Layout>
               <Switch>
-                {/* <Route path="/declaraciones" exact component={StatementList} /> */}
+                <Route path="/clientes" exact component={Customers} />
                 <Route component={Products} />
               </Switch>
             </Layout>
