@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import color from "@material-ui/core/colors/blue";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
 
-function App() {
+import Layout from "./components/UI/Layout/Layout";
+import Notifier from "./components/UI/Notifier";
+
+import Products from "./pages/ProductListContainer";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: color,
+    background: {
+      default: "#F5F5F5",
+    },
+  },
+});
+
+const app = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <SnackbarProvider maxSnack={3}>
+          <React.Fragment>
+            <Notifier />
+            <Layout>
+              <Switch>
+                {/* <Route path="/declaraciones" exact component={StatementList} /> */}
+                <Route component={Products} />
+              </Switch>
+            </Layout>
+          </React.Fragment>
+        </SnackbarProvider>
+      </MuiThemeProvider>
     </div>
   );
-}
+};
 
-export default App;
+export default withRouter(app);
