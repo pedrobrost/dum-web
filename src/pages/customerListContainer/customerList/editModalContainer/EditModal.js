@@ -16,10 +16,10 @@ const editModal = (props) => {
       disableBackdropClick={props.sending}
       aria-labelledby="form-dialog-title"
     >
-      <DialogTitle id="form-dialog-title">Editar Producto</DialogTitle>
+      <DialogTitle id="form-dialog-title">Editar Cliente</DialogTitle>
       <DialogContent>
         <>
-          <DialogContentText>Edite los datos del producto</DialogContentText>
+          <DialogContentText>Edite los datos del cliente</DialogContentText>
           <TextField
             value={props.name}
             onChange={(e) => props.changeName(e.target.value)}
@@ -28,6 +28,7 @@ const editModal = (props) => {
             fullWidth
           />
           <TextField
+            style={{ marginTop: 15 }}
             value={props.address}
             onChange={(e) => props.changeAddress(e.target.value)}
             margin="dense"
@@ -35,6 +36,7 @@ const editModal = (props) => {
             fullWidth
           />
           <TextField
+            style={{ marginTop: 15 }}
             value={props.phone}
             onChange={(e) => props.changePhone(e.target.value)}
             margin="dense"

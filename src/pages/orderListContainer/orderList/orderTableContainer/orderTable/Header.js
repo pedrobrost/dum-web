@@ -11,7 +11,7 @@ const header = () => {
         <TableCell>Dirección</TableCell>
         <TableCell>Teléfono</TableCell>
         <TableCell>Fecha</TableCell>
-        <TableCell>Precio</TableCell>
+        <TableCell align="right">Precio</TableCell>
         <TableCell padding="none" align="right" />
       </TableRow>
     </TableHead>

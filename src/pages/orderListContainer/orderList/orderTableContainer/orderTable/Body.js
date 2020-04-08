@@ -39,6 +39,9 @@ const body = (props) => {
               <TableCell>
                 {format(new Date(a.createdAt), "dd/MM/yyyy")}
               </TableCell>
+              <TableCell align="right">
+                {a.products.reduce((ac, cv) => ac + cv.price * cv.amount, 0)}
+              </TableCell>
               <TableCell padding="none" align="right">
                 <IconButton
                   className={props.classes.button}

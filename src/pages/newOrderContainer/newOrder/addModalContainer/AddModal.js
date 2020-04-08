@@ -21,10 +21,12 @@ const addModal = (props) => {
       <DialogTitle id="form-dialog-title">Agregar Producto</DialogTitle>
       <DialogContent>
         <>
-          <DialogContentText>Ingrese los datos del producto</DialogContentText>
+          <DialogContentText style={{ marginBottom: 4 }}>
+            Ingrese los datos del producto
+          </DialogContentText>
           <Autocomplete
             options={props.products}
-            getOptionLabel={(option) => option.name}
+            getOptionLabel={(option) => `${option.name} ($${option.price})`}
             value={props.product}
             onChange={(e, newValue) => props.changeProduct(newValue)}
             disableClearable
@@ -41,7 +43,6 @@ const addModal = (props) => {
             type="number"
             fullWidth
           />
-          {props.product && <p>Precio: {props.product.price}</p>}
         </>
       </DialogContent>
       <DialogActions>

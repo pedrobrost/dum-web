@@ -29,7 +29,7 @@ const body = (props) => {
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((a) => {
           return (
-            <TableRow key={a._id}>
+            <TableRow key={`${a.product._id}-${a.amount}`}>
               <TableCell>{a.product.name}</TableCell>
               <TableCell align="right">{a.amount}</TableCell>
               <TableCell align="right">{a.product.price}</TableCell>

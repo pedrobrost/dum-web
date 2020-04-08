@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 
+import auth from "./ducks/auth";
 import loading from "./ducks/loading";
 import error from "./ducks/error";
 import notifications from "./ducks/notifications";
@@ -20,6 +21,7 @@ import newOrder from "./ducks/newOrder";
 const createRootReducer = (history) =>
   combineReducers({
     router: connectRouter(history),
+    auth,
     loading,
     error,
     notifications,

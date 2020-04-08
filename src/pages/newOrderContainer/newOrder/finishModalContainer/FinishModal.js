@@ -12,6 +12,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
 import format from "date-fns/format";
 
 const styles = (theme) => ({
@@ -57,7 +58,7 @@ const showModal = (props) => {
               </TableHead>
               <TableBody>
                 {props.products.map((p) => (
-                  <TableRow>
+                  <TableRow key={`${p.product._id}-${p.amount}`}>
                     <TableCell>{p.product.name}</TableCell>
                     <TableCell align="right">{p.amount}</TableCell>
                     <TableCell align="right">{p.product.price}</TableCell>
@@ -65,13 +66,13 @@ const showModal = (props) => {
                 ))}
               </TableBody>
             </Table>
-            <p>
-              Total:{" "}
+            <Typography variant="h6" style={{ marginTop: 30, fontWeight: 400 }}>
+              Total: $
               {props.products.reduce(
                 (ac, cv) => ac + cv.product.price * cv.amount,
                 0
               )}
-            </p>
+            </Typography>
           </DialogContent>
         </>
       )}

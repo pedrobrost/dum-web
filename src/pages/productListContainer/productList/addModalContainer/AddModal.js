@@ -28,6 +28,7 @@ const addModal = (props) => {
             fullWidth
           />
           <TextField
+            style={{ marginTop: 15 }}
             value={props.price}
             onChange={(e) => props.changePrice(e.target.value)}
             margin="dense"

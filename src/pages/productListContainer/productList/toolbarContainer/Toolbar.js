@@ -14,8 +14,7 @@ const styles = (theme) => ({
     flex: "0 0 auto",
   },
   toolbar: {
-    paddingRight: theme.spacing(4),
-    paddingLeft: theme.spacing(6.5),
+    paddingLeft: theme.spacing(4),
   },
   highlight: {
     color: theme.palette.primary.main,

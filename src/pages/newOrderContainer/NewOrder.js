@@ -44,7 +44,7 @@ const newOrder = (props) => {
             </Grid>
             <Grid item>
               <Paper className={classes.title}>
-                <Typography variant="h5">Total: {props.total}</Typography>
+                <Typography variant="h5">Total: ${props.total}</Typography>
               </Paper>
             </Grid>
           </Grid>

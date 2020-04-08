@@ -108,7 +108,11 @@ export const confirm = () => async (dispatch, getState) => {
       dispatch(failure());
     }
   } else {
-    dispatch(enqueueError("Debe ingresar todos los campos"));
+    if (!customer || !address) {
+      dispatch(enqueueError("Debe ingresar cliente y dirección"));
+    } else {
+      dispatch(enqueueError("Debe ingresar al menos un producto"));
+    }
   }
 };
 
@@ -153,7 +157,7 @@ const reducer = (state = initialState, action) => {
     case types.NEW_ORDER_FAILURE:
       return { ...state, sending: false, finishModal: false };
     case types.NEW_ORDER_FINISH_MODAL_CLOSE:
-      return { ...state, finishModal: false };
+      return initialState;
     default:
       return state;
   }

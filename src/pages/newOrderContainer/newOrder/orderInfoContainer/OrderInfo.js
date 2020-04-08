@@ -11,7 +11,6 @@ const orderInfo = (props) => {
         value={props.customer}
         onChange={(e, newValue) => props.changeCustomer(newValue)}
         disableClearable
-        fullWidth
         renderInput={(params) => (
           <TextField
             {...params}
@@ -31,7 +30,6 @@ const orderInfo = (props) => {
       <TextField
         fullWidth
         style={{ marginTop: 10 }}
-        label="Standard"
         label="Descripción"
         value={props.description}
         onChange={(e) => props.changeDescription(e.target.value)}
