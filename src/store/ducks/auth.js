@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import axios from "../../axios";
 
 const types = {
@@ -25,6 +26,40 @@ export const changePassword = (password) => ({
   password,
 });
 
+const getInterceptor = (dispatch) => async (config) => {
+  if (config.url !== "/login") {
+    const jwt = localStorage.getItem("dum-token");
+    if (jwt) {
+      const decoded = jwt_decode(jwt);
+      const current_time = Date.now() / 1000;
+      if (decoded.exp < current_time) {
+        localStorage.removeItem("dum-token");
+        dispatch(logout());
+      }
+    } else {
+      dispatch(logout());
+    }
+    config.headers.Authorization = `Bearer ${jwt}`;
+  }
+  return Promise.resolve(config);
+};
+
+export const checkLogin = (dispatch) => {
+  const jwt = localStorage.getItem("dum-token");
+  if (jwt) {
+    const decoded = jwt_decode(jwt);
+    const current_time = Date.now() / 1000;
+    if (decoded.exp < current_time) {
+      localStorage.removeItem("dum-token");
+      dispatch(logout());
+    } else {
+      const interceptor = getInterceptor(dispatch);
+      axios.interceptors.request.use(interceptor);
+      dispatch(success());
+    }
+  }
+};
+
 export const login = () => async (dispatch, getState) => {
   const {
     auth: { password },
@@ -34,10 +69,7 @@ export const login = () => async (dispatch, getState) => {
     const { data } = await axios.post("/login", { password });
     if (data.jwt) {
       localStorage.setItem("dum-token", data.jwt);
-      const interceptor = async (config) => {
-        config.headers.Authorization = `Bearer ${data.jwt}`;
-        return Promise.resolve(config);
-      };
+      const interceptor = getInterceptor(dispatch);
       axios.interceptors.request.use(interceptor);
       dispatch(success());
     } else {

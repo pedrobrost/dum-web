@@ -53,6 +53,7 @@ const signIn = ({ classes, password, error, login, changePassword }) => {
             label="Contraseña"
             type="password"
             autoComplete="current-password"
+            autoFocus
             error={error}
             helperText={error ? "Contraseña incorrecta" : null}
           />
