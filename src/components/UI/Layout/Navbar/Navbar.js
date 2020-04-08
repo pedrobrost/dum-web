@@ -11,6 +11,7 @@ import UserControll from "./UserControll";
 const styles = (theme) => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+   backgroundColor: '#c62828'
   },
   flex: {
     flex: 1,

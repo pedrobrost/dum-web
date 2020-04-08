@@ -1,7 +1,7 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import color from "@material-ui/core/colors/blue";
+import color from "@material-ui/core/colors/red";
 import { connect } from "react-redux";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
