@@ -12,6 +12,10 @@ import customers from "./ducks/customers";
 import customerFilters from "./ducks/customerFilters";
 import addCustomerModal from "./ducks/addCustomerModal";
 import editCustomerModal from "./ducks/editCustomerModal";
+import orders from "./ducks/orders";
+import orderFilters from "./ducks/orderFilters";
+import showOrderModal from "./ducks/showOrderModal";
+import newOrder from "./ducks/newOrder";
 
 const createRootReducer = (history) =>
   combineReducers({
@@ -27,5 +31,9 @@ const createRootReducer = (history) =>
     customerFilters,
     addCustomerModal,
     editCustomerModal,
+    orders,
+    orderFilters,
+    showOrderModal,
+    newOrder,
   });
 export default createRootReducer;

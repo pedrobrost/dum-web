@@ -10,6 +10,8 @@ import Notifier from "./components/UI/Notifier";
 
 import Products from "./pages/ProductListContainer";
 import Customers from "./pages/CustomerListContainer";
+import Orders from "./pages/OrderListContainer";
+import NewOrder from "./pages/NewOrderContainer";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +32,8 @@ const app = (props) => {
             <Notifier />
             <Layout>
               <Switch>
+                <Route path="/pedidos" exact component={Orders} />
+                <Route path="/pedidos/nuevo" exact component={NewOrder} />
                 <Route path="/clientes" exact component={Customers} />
                 <Route component={Products} />
               </Switch>

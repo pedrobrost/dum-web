@@ -8,6 +8,7 @@ import Input from "@material-ui/core/Input";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from "@material-ui/icons/Add";
+import { Link } from "react-router-dom";
 
 const styles = (theme) => ({
   title: {
@@ -48,8 +49,12 @@ const toolbar = (props) => {
         fullWidth
         placeholder="Buscar"
       />
-      <Tooltip title="Agregar cliente">
-        <IconButton onClick={props.openAddModal}>
+      <Tooltip title="Agregar pedido">
+        <IconButton
+          component={Link}
+          to="/pedidos/nuevo"
+          onClick={props.openAddModal}
+        >
           <AddIcon />
         </IconButton>
       </Tooltip>
