@@ -13,6 +13,8 @@ import TableCell from "@material-ui/core/TableCell";
 import format from "date-fns/format";
 import { Typography } from "@material-ui/core";
 
+import Print from "../../../../components/Print/Print";
+
 const showModal = (props) => {
   return (
     <Dialog
@@ -68,9 +70,7 @@ const showModal = (props) => {
         </>
       )}
       <DialogActions>
-        <Button onClick={props.onClose} color="primary">
-          Imprimir
-        </Button>
+        <Print order={props.order} />
         <Button onClick={props.onClose} color="primary">
           Cerrar
         </Button>

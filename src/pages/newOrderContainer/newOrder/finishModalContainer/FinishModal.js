@@ -15,6 +15,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
 import format from "date-fns/format";
 
+import Print from "../../../../components/Print/Print";
+
 const styles = (theme) => ({
   spinnerContainer: {
     display: "flex",
@@ -77,9 +79,17 @@ const showModal = (props) => {
         </>
       )}
       <DialogActions>
-        <Button onClick={props.onClose} color="primary">
-          Imprimir
-        </Button>
+        <Print
+          order={{
+            customer: props.customer,
+            address: props.address,
+            products: props.products.map((p) => ({
+              product: { ...p.product },
+              amount: p.amount,
+              price: p.product.price,
+            })),
+          }}
+        />
         <Button onClick={props.onClose} color="primary">
           Cerrar
         </Button>
