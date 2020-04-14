@@ -19,8 +19,11 @@ class ComponentToPrint extends React.Component {
           <Typography variant="subtitle1">
             Cliente: {this.props.order.customer.name}
           </Typography>
-          <Typography variant="subtitle1" style={{ marginBottom: 10 }}>
+          <Typography variant="subtitle1">
             Dirección: {this.props.order.address}
+          </Typography>
+          <Typography variant="subtitle1" style={{ marginBottom: 10 }}>
+            Teléfono: {this.props.order.customer.phone}
           </Typography>
           <Table size="small">
             <TableHead>
