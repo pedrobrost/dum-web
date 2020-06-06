@@ -29,5 +29,7 @@ export const getOrders = (state) => {
     `.*${escapeStringRegexp(state.orderFilters.search)}.*`,
     "i"
   );
-  return state.orders.filter((a) => a.customer.name.match(regex));
+  return state.orders
+    .filter((a) => a.customer.name.match(regex))
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 };
