@@ -17,6 +17,7 @@ import orders from "./ducks/orders";
 import orderFilters from "./ducks/orderFilters";
 import showOrderModal from "./ducks/showOrderModal";
 import newOrder from "./ducks/newOrder";
+import editOrder from "./ducks/editOrder";
 
 const createRootReducer = (history) =>
   combineReducers({
@@ -37,5 +38,6 @@ const createRootReducer = (history) =>
     orderFilters,
     showOrderModal,
     newOrder,
+    editOrder,
   });
 export default createRootReducer;

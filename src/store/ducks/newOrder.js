@@ -9,6 +9,7 @@ const types = {
   NEW_ORDER_ADD_PRODUCT_MODAL_CHANGE_AMOUNT:
     "NEW_ORDER_ADD_PRODUCT_MODAL_CHANGE_AMOUNT",
   NEW_ORDER_ADD_PRODUCT: "NEW_ORDER_ADD_PRODUCT",
+  NEW_ORDER_REMOVE_PRODUCT: "NEW_ORDER_REMOVE_PRODUCT",
   NEW_ORDER_CHANGE_CUSTOMER: "NEW_ORDER_CHANGE_CUSTOMER",
   NEW_ORDER_CHANGE_ADDRESS: "NEW_ORDER_CHANGE_ADDRESS",
   NEW_ORDER_CHANGE_DESCRIPTION: "NEW_ORDER_CHANGE_DESCRIPTION",
@@ -84,6 +85,11 @@ export const addProduct = () => async (dispatch, getState) => {
   }
 };
 
+export const removeProduct = (index) => ({
+  type: types.NEW_ORDER_REMOVE_PRODUCT,
+  index,
+});
+
 export const confirm = () => async (dispatch, getState) => {
   const {
     newOrder: { products, customer, address, description },
@@ -143,6 +149,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         addProductModal: false,
         products: [...state.products, action.product],
+      };
+    case types.NEW_ORDER_REMOVE_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter((_, index) => index !== action.index),
       };
     case types.NEW_ORDER_CHANGE_CUSTOMER:
       return { ...state, customer: action.customer };

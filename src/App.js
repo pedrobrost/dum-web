@@ -15,6 +15,7 @@ import Products from "./pages/ProductListContainer";
 import Customers from "./pages/CustomerListContainer";
 import Orders from "./pages/OrderListContainer";
 import NewOrder from "./pages/NewOrderContainer";
+import EditOrder from "./pages/EditOrderContainer";
 
 const theme = createMuiTheme({
   palette: {
@@ -37,6 +38,7 @@ const app = (props) => {
           <Switch>
             <Route path="/pedidos" exact component={Orders} />
             <Route path="/pedidos/nuevo" exact component={NewOrder} />
+            <Route path="/pedidos/:id" exact component={EditOrder} />
             <Route path="/clientes" exact component={Customers} />
             <Route component={Products} />
           </Switch>

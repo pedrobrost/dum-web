@@ -12,6 +12,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import format from "date-fns/format";
 import { Typography } from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
 
 import Print from "../../../../components/Print/Print";
 
@@ -67,14 +68,23 @@ const showModal = (props) => {
               </Typography>
             </>
           </DialogContent>
+          <DialogActions style={{ marginTop: 10 }}>
+            <Button
+              onClick={props.onClose}
+              color="primary"
+              component={RouterLink}
+              to={`/pedidos/${props.order._id}`}
+              style={{ marginRight: "auto" }}
+            >
+              Editar
+            </Button>
+            <Print order={props.order} />
+            <Button onClick={props.onClose} color="primary">
+              Cerrar
+            </Button>
+          </DialogActions>
         </>
       )}
-      <DialogActions>
-        <Print order={props.order} />
-        <Button onClick={props.onClose} color="primary">
-          Cerrar
-        </Button>
-      </DialogActions>
     </Dialog>
   );
 };

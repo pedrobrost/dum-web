@@ -4,6 +4,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import DeleteIcon from "@material-ui/icons/Delete";
+import WarningIcon from "@material-ui/icons/Warning";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -19,6 +20,11 @@ const styles = (theme) => ({
     width: 48,
     height: 48,
     alignItems: "center",
+  },
+  warning: {
+    display: "inline-flex",
+    alignItems: "center",
+    color: "rgba(0, 0, 0, 0.54)",
   },
 });
 
@@ -38,6 +44,15 @@ const body = (props) => {
               <TableCell align="right">{a.product.price}</TableCell>
               <TableCell padding="none">
                 <div className={props.classes.iconContainer}>
+                  {a.product.price !== a.product.newPrice && (
+                    <Tooltip
+                      title={`Precio desactualizado ($${a.product.newPrice})`}
+                    >
+                      <div className={props.classes.warning}>
+                        <WarningIcon />
+                      </div>
+                    </Tooltip>
+                  )}
                   <Tooltip title="Eliminar">
                     <IconButton onClick={() => props.removeProduct(index)}>
                       <DeleteIcon />
